@@ -1,4 +1,4 @@
--- 1) List the top 3 and bottom 3 makers for the fiscal years 2023 and 2024 in terms of the number of 2-wheelers sold.
+-- Q1) List the top 3 and bottom 3 makers for the fiscal years 2023 and 2024 in terms of the number of 2-wheelers sold.
 ```bash
 WITH RankedSales AS (
     SELECT d.fiscal_year, m.maker,
@@ -20,7 +20,7 @@ WHERE rank_desc <= 3 OR rank_asc <= 3
 ORDER BY fiscal_year, rank_type, total_electric_vehicles_sold DESC;
 ```
 
--- 2. Identify the top 5 states with the highest penetration rate in 2-wheeler and 4-wheeler EV sales in FY 2024.
+-- Q2. Identify the top 5 states with the highest penetration rate in 2-wheeler and 4-wheeler EV sales in FY 2024.
 ``` bash
 SELECT * 
 FROM ( 
@@ -47,7 +47,7 @@ ORDER BY penetration_rate DESC limit 5
 ) AS four;
 ```
 
--- 3) List the states with negative penetration (decline) in EV sales from 2022 to 2024?
+-- Q3) List the states with negative penetration (decline) in EV sales from 2022 to 2024?
 ```bash
 WITH CTE2022 AS(
 SELECT state,
@@ -77,7 +77,7 @@ WHERE CTE2022.penetration_rate>CTE2024.penetration_rate
 GROUP BY state;
 ```
 
--- 4) What are the quarterly trends based on sales volume for the top 5 EV makers (4-wheelers) from 2022 to 2024? 
+-- Q4) What are the quarterly trends based on sales volume for the top 5 EV makers (4-wheelers) from 2022 to 2024? 
 ```bash
 WITH top_5_makers AS (
 SELECT b.maker AS maker,
@@ -101,7 +101,7 @@ ORDER BY a.quarter, top_5_makers.maker;
 ```
 
 
--- 5) How do the EV sales and penetration rates in Delhi compare to Karnataka for 2024? 
+-- Q5) How do the EV sales and penetration rates in Delhi compare to Karnataka for 2024? 
 ```bash
 WITH Delhi_prate AS (
 SELECT state, a.fiscal_year, 
@@ -130,7 +130,7 @@ FROM karnataka_prate;
 ```
 
 
--- 6) List down the compounded annual growth rate (CAGR) in 4-wheeler units for the top 5 makers from 2022 to 2024. 
+-- Q6) List down the compounded annual growth rate (CAGR) in 4-wheeler units for the top 5 makers from 2022 to 2024. 
 ```bash
 WITH Top5makers AS (
 SELECT maker
@@ -159,7 +159,7 @@ USING (maker)
 ORDER BY CAGR DESC;
 ```
 
--- 7) List down the top 10 states that had the highest compounded annual growth rate (CAGR) from 2022 to 2024 in total vehicles sold. 
+-- Q7) List down the top 10 states that had the highest compounded annual growth rate (CAGR) from 2022 to 2024 in total vehicles sold. 
 ```bash
 WITH Top10states AS (
 SELECT state
@@ -188,7 +188,7 @@ USING (state)
 ORDER BY CAGR DESC;
 ```
 
--- 8)What are the peak and low season months for EV sales based on the data from 2022 to 2024? 
+-- Q8)What are the peak and low season months for EV sales based on the data from 2022 to 2024? 
 
 ```bash
 WITH peak_season AS (
@@ -218,7 +218,7 @@ UNION
 SELECT *  FROM low_season ;
 ```
 
--- 9. What is the projected number of EV sales (including 2-wheelers and 4-wheelers) for the top 10 states by penetration rate in 2030, based on the compounded annual growth rate (CAGR) from previous years?
+-- Q9. What is the projected number of EV sales (including 2-wheelers and 4-wheelers) for the top 10 states by penetration rate in 2030, based on the compounded annual growth rate (CAGR) from previous years?
 ```bash
 WITH Top10states AS (
 SELECT state,
