@@ -1,8 +1,5 @@
 # Indian-EV-Market-Data-Analysis
 
-Here’s a concise and professional report summarizing the SQL analysis for your LinkedIn profile. 
-
----
 
 ### 🚀 **Data Insights on Electric Vehicle (EV) Sales: A Comprehensive Analysis (2022-2024)**  
 
@@ -77,6 +74,4 @@ Connect with me to discuss EV trends, data insights, or sustainable mobility sol
 
 #DataAnalytics #ElectricVehicles #SQL #Sustainability #FutureOfMobility  
 
---- 
 
-Feel free to customize or adjust the tone as per your style, Manov! Let me know if you’d like additional refinements.
